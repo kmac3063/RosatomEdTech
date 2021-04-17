@@ -1,10 +1,9 @@
 package com.example.rosatomedtech.data.model
 
-import android.database.sqlite.SQLiteDatabase
-import com.example.rosatomedtech.data.objects.UserInfo
+import com.example.rosatomedtech.data.objects.Student
 
 class DataModel : MVPDataModel {
-    override fun doCreateNewUser(user: UserInfo) {
+    override fun doCreateNewUser(student: Student) {
         TODO("Not yet implemented")
     }
 }

@@ -1,7 +1,7 @@
 package com.example.rosatomedtech.data.model
 
-import com.example.rosatomedtech.data.objects.UserInfo
+import com.example.rosatomedtech.data.objects.Student
 
 interface MVPDataModel {
-    fun doCreateNewUser(user: UserInfo)
+    fun doCreateNewUser(student: Student)
 }
