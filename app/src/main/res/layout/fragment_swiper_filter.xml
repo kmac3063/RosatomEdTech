@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF0A2">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/textView2"
@@ -20,35 +20,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radiogroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:button="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:layout_marginTop="10dp">
+        android:layout_margin="10dp">
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/swiper_filter_radio_selector"
+            android:button="@android:color/transparent"
+            android:padding="0dp"
             android:text="Оплачиваемая"
-            android:padding="16dp"
-            android:layout_margin="16dp" />
+            android:textAlignment="center"
+            android:textColor="@drawable/swiper_filter_radio_text_color"
+            android:textSize="12sp" />
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/swiper_filter_radio_selector"
+            android:button="@android:color/transparent"
+            android:padding="2dp"
             android:text="Неоплачиваемая"
-            android:padding="16dp"
-            android:layout_margin="16dp" />
+            android:textAlignment="center"
+            android:textColor="@drawable/swiper_filter_radio_text_color"
+            android:textSize="12sp" />
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/swiper_filter_radio_selector"
+            android:button="@android:color/transparent"
+            android:padding="2dp"
             android:text="Все"
-            android:padding="16dp"
-            android:layout_margin="16dp" />
+            android:textAlignment="center"
+            android:textColor="@drawable/swiper_filter_radio_text_color"
+            android:textSize="12sp" />
 
     </RadioGroup>
 
