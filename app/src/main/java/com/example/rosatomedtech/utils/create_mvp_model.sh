@@ -115,15 +115,6 @@ class ${name}Activity : BaseActivity(), ${name}MVPView {
         open${name}Activity()
     }
 
-    override fun open${name}Activity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    override fun openMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
 }" >> "$file1"
 
 touch "$file2"
@@ -132,7 +123,5 @@ echo "package com.example.rosatomedtech.ui.views.${dotpath}.view
 import com.example.rosatomedtech.ui.base.view.MVPView
 
 interface ${name}MVPView : MVPView {
-    fun open${name}Activity()
 
-    fun openMainActivity()
 }" >> "$file2"
