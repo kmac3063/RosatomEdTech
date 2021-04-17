@@ -2,11 +2,11 @@ package com.example.rosatomedtech.data.model
 
 import com.example.rosatomedtech.data.objects.Card
 import com.example.rosatomedtech.data.objects.Student
-import java.util.*
 import kotlin.collections.ArrayList
 
 
-object DataModel : MVPDataModel {
+object DataModel: MVPDataModel {
+
     override fun doCreateNewStudent(student: Student) {
         TODO("Not yet implemented")
     }

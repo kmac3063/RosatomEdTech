@@ -5,10 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.rosatomedtech.data.model.MVPDataModel
-import com.example.rosatomedtech.data.objects.CardStackInfo
+import com.example.rosatomedtech.data.objects.Card
 import com.example.rosatomedtech.data.objects.Student
 
-@Database(entities = [Student::class, CardStackInfo::class], version = 1, exportSchema = false)
+@Database(entities = [Student::class, Card::class], version = 1, exportSchema = false)
 abstract class DataBase: RoomDatabase() {
 
     abstract fun MVPDataModel(): MVPDataModel

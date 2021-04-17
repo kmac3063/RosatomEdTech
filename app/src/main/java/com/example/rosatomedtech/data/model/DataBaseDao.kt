@@ -5,15 +5,14 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.rosatomedtech.data.objects.CardStackInfo
-import com.example.rosatomedtech.data.objects.Student
+import com.example.rosatomedtech.data.objects.Card
 
 @Dao
-interface Dao {
+interface DataBaseDao {
 
     @Query("SELECT * FROM card_table ORDER BY id ASC")
-    fun readAllCards(): LiveData<List<CardStackInfo>>
+    fun readAllCards(): LiveData<List<Card>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addCard(card: CardStackInfo)
+    suspend fun addCard(card: Card)
 }

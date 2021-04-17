@@ -1,6 +1,5 @@
 package com.example.rosatomedtech.ui.views.main.fragments.swiper.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rosatomedtech.R
-import com.example.rosatomedtech.data.objects.CardStackInfo
+import com.example.rosatomedtech.data.objects.Card
 import com.example.rosatomedtech.data.preferences.AppPreferenceHelper
-import com.example.rosatomedtech.ui.base.view.BaseActivity
 import com.example.rosatomedtech.ui.base.view.BaseFragment
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.interactor.SwiperInteractor
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.interactor.SwiperMVPInteractor
@@ -54,7 +52,7 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
         cardStack.adapter = CardStackAdapter(presenter.getCardStackList())
     }
 
-    inner class CardStackAdapter(var itemList: List<CardStackInfo>): RecyclerView.Adapter<CardStackViewHolder>() {
+    inner class CardStackAdapter(var itemList: List<Card>): RecyclerView.Adapter<CardStackViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardStackViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.card_stack_view_holder, parent, false)
@@ -72,7 +70,7 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
     inner class CardStackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imageView: ImageView = itemView.findViewById(R.id.iw_card_stack)
 
-        fun bind(item: CardStackInfo) {
+        fun bind(item: Card) {
 
         }
     }
