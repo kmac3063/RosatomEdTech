@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "card_table")
-data class CardStackInfo(
+data class Card(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val imgUrl: String

@@ -4,15 +4,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.rosatomedtech.data.objects.CardStackInfo
+import com.example.rosatomedtech.data.objects.Card
 import com.example.rosatomedtech.data.objects.Student
 
-@Dao
+
 interface MVPDataModel {
 
-    @Query("SELECT * FROM card_table ORDER BY id ASC")
-    fun getCardStackList(): List<CardStackInfo>
+    fun getCardStackList(): List<Card>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun doCreateNewStudent(student: Student)
 }
