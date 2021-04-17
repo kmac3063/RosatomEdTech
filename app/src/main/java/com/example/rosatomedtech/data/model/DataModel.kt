@@ -5,6 +5,8 @@ import com.example.rosatomedtech.data.objects.Student
 import java.util.*
 import kotlin.collections.ArrayList
 
+
+
 object DataModel : MVPDataModel {
     override fun doCreateNewStudent(student: Student) {
         TODO("Not yet implemented")
@@ -23,8 +25,8 @@ object DataModel : MVPDataModel {
             "https://i05.fotocdn.net/s126/8da13787b5166283/public_pin_l/2874426642.jpg",
         ))
         val list = ArrayList<CardStackInfo>()
-        for (el in imgList) {
-            list.add(CardStackInfo(el))
+        for (i in imgList.indices) {
+            list.add(CardStackInfo(i+1, imgList[i]))
         }
         return list
     }
