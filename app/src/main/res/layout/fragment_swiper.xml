@@ -7,83 +7,14 @@
     android:background="#FFF0A2"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/fl_card_container"
-        android:layout_width="340dp"
-        android:layout_height="400dp"
-        android:minWidth="340dp"
-        android:minHeight="400dp"
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="130dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="swipe_image_description"
-            android:src="@drawable/card_swiper_yandex_345x429" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingTop="15dp">
-
-            <TextView
-                android:id="@+id/tv_company_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="275dp"
-                android:maxLines="1"
-                android:text="Yandex"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/tv_position_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxWidth="275dp"
-                android:maxLines="1"
-                android:text="Back-end разработчик"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/tv_location_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxWidth="275dp"
-                android:maxLines="1"
-                android:text="Новосибирск"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-    </FrameLayout>
-
-    <ir.sohreco.circularpulsingbutton.CircularPulsingButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_ok_button_256dp"
-        app:layout_constraintLeft_toLeftOf="@id/fl_card_container"
-        app:layout_constraintTop_toBottomOf="@id/fl_card_container"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        app:cpb_text="asdasdasd"
-        app:cpb_zoomOutScale="0.5"
-        app:cpb_zoomInScale="1.5"
-        app:cpb_animationDuration="300" />
-
-    <ImageButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:scaleType="fitCenter"
-        android:background="?android:selectableItemBackground"
-        android:src="@drawable/ic_decline_button_256dp"
-        app:layout_constraintRight_toRightOf="@id/fl_card_container"
-        app:layout_constraintTop_toBottomOf="@id/fl_card_container"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
