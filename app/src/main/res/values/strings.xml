@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RosatomEdTech</string>
+    <string name="small_password_error">Пароль должен быть больше 6 символов</string>
+    <string name="phone_error">Введите верный номер</string>
+
 </resources>
