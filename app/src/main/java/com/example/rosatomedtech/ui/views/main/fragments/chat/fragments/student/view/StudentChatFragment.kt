@@ -13,9 +13,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.chat.fragments.student.
 import com.example.rosatomedtech.ui.views.main.fragments.chat.fragments.student.view.StudentChatMVPView
 
 class StudentChatFragment : BaseFragment(), StudentChatMVPView {
-    var presenter = StudentChatPresenter<StudentChatMVPView, StudentChatMVPInteractor>(
-        StudentChatInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: StudentChatPresenter<StudentChatMVPView, StudentChatMVPInteractor>
 
     companion object {
         fun newInstance(): StudentChatFragment {
@@ -38,6 +36,9 @@ class StudentChatFragment : BaseFragment(), StudentChatMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = StudentChatPresenter(
+            StudentChatInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }

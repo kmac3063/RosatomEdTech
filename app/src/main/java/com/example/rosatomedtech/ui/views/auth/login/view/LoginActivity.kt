@@ -11,13 +11,14 @@ import com.example.rosatomedtech.ui.views.auth.login.presenter.LoginPresenter
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class LoginActivity : BaseActivity(), LoginMVPView {
-    var presenter = LoginPresenter<LoginMVPView, LoginMVPInteractor>(
-        LoginInteractor(AppPreferenceHelper(this))
-    )
+    lateinit var presenter: LoginPresenter<LoginMVPView, LoginMVPInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start);
+        presenter = LoginPresenter(
+            LoginInteractor(AppPreferenceHelper(this))
+        )
+        setContentView(R.layout.activity_start)
 
         presenter.onAttach(this)
 
