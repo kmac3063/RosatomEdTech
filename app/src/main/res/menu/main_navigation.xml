@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_navigation_home_vacancy_list"
+        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:title="Все стажировки" />
+
+    <item
+        android:id="@+id/main_navigation_swiper"
+        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:title="Карточки" />
+
+    <item
+        android:id="@+id/main_navigation_chat"
+        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:title="Чат" />
+
+    <item
+        android:id="@+id/main_navigation_profile"
+        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:title="Профиль" />
+
+</menu>

@@ -22,4 +22,8 @@ class AppPreferenceHelper(context: Context) : PreferenceHelper {
             putLong(PREF_KEY_CURRENT_USER_ID, id)
         }
     }
+
+    override fun getCurrentUserType(): AppConstants.UserType {
+        return AppConstants.UserType.STUDENT
+    }
 }

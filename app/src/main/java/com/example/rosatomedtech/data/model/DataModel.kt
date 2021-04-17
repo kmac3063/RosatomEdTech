@@ -1,5 +1,6 @@
 package com.example.rosatomedtech.data.model
 
+import android.database.sqlite.SQLiteDatabase
 import com.example.rosatomedtech.data.objects.UserInfo
 
 class DataModel : MVPDataModel {
