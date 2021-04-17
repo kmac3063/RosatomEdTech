@@ -16,9 +16,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.vacanciesList.presenter
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class VacanciesListFragment : BaseFragment(), VacanciesListMVPView {
-    var presenter = VacanciesListPresenter<VacanciesListMVPView, VacanciesListMVPInteractor>(
-        VacanciesListInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: VacanciesListPresenter<VacanciesListMVPView, VacanciesListMVPInteractor>
 
     companion object {
         fun newInstance(): VacanciesListFragment {
@@ -41,6 +39,9 @@ class VacanciesListFragment : BaseFragment(), VacanciesListMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = VacanciesListPresenter<VacanciesListMVPView, VacanciesListMVPInteractor>(
+            VacanciesListInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }

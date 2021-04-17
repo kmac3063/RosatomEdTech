@@ -14,9 +14,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.swiper.interactor.Swipe
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.presenter.SwiperPresenter
 
 class SwiperFragment : BaseFragment(), SwiperMVPView {
-    var presenter = SwiperPresenter<SwiperMVPView, SwiperMVPInteractor>(
-        SwiperInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: SwiperPresenter<SwiperMVPView, SwiperMVPInteractor>
 
     companion object {
         fun newInstance(): SwiperFragment {
@@ -39,6 +37,9 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = SwiperPresenter<SwiperMVPView, SwiperMVPInteractor>(
+            SwiperInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }

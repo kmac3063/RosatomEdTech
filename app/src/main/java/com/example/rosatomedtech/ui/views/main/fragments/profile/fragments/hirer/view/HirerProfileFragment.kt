@@ -12,9 +12,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.hirer
 import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.hirer.presenter.HirerProfilePresenter
 
 class HirerProfileFragment : BaseFragment(), HirerProfileMVPView {
-    var presenter = HirerProfilePresenter<HirerProfileMVPView, HirerProfileMVPInteractor>(
-        HirerProfileInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: HirerProfilePresenter<HirerProfileMVPView, HirerProfileMVPInteractor>
 
     companion object {
         fun newInstance(): HirerProfileFragment {
@@ -37,6 +35,9 @@ class HirerProfileFragment : BaseFragment(), HirerProfileMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = HirerProfilePresenter<HirerProfileMVPView, HirerProfileMVPInteractor>(
+            HirerProfileInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }

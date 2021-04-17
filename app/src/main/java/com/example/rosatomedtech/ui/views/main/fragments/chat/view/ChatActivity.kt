@@ -11,12 +11,13 @@ import com.example.rosatomedtech.ui.views.main.fragments.chat.presenter.ChatPres
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class ChatActivity : BaseActivity(), ChatMVPView {
-    var presenter = ChatPresenter<ChatMVPView, ChatMVPInteractor>(
-        ChatInteractor(AppPreferenceHelper(this))
-    )
+    lateinit var presenter: ChatPresenter<ChatMVPView, ChatMVPInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = ChatPresenter(
+            ChatInteractor(AppPreferenceHelper(this))
+        )
         setContentView(R.layout.activity_start);
 
         presenter.onAttach(this)

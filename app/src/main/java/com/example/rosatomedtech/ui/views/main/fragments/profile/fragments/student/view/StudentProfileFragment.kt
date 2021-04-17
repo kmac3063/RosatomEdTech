@@ -12,9 +12,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.stude
 import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.student.presenter.StudentProfilePresenter
 
 class StudentProfileFragment : BaseFragment(), StudentProfileMVPView {
-    var presenter = StudentProfilePresenter<StudentProfileMVPView, StudentProfileMVPInteractor>(
-        StudentProfileInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: StudentProfilePresenter<StudentProfileMVPView, StudentProfileMVPInteractor>
 
     companion object {
         fun newInstance(): StudentProfileFragment {
@@ -38,6 +36,9 @@ class StudentProfileFragment : BaseFragment(), StudentProfileMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = StudentProfilePresenter<StudentProfileMVPView, StudentProfileMVPInteractor>(
+            StudentProfileInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }
