@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/main_navigation_home_vacancy_list"
-        android:icon="@drawable/ic_vacancy_list_24dp"
-        android:title="Все стажировки" />
+        android:id="@+id/main_navigation_vacancy_list"
+        android:icon="@drawable/ic_vacancy_list_256dp"
+        android:title="Все вакансии" />
 
     <item
         android:id="@+id/main_navigation_swiper"
-        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:icon="@drawable/ic_swiper_256dp"
         android:title="Карточки" />
 
     <item
         android:id="@+id/main_navigation_chat"
-        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:icon="@drawable/ic_chat_256dp"
         android:title="Чат" />
 
     <item
         android:id="@+id/main_navigation_profile"
-        android:icon="@drawable/ic_vacancy_list_24dp"
+        android:icon="@drawable/ic_profile_256dp"
         android:title="Профиль" />
 
 </menu>

@@ -11,12 +11,13 @@ import com.example.rosatomedtech.ui.views.auth.start.presenter.StartPresenter
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class StartActivity : BaseActivity(), StartMVPView {
-    var presenter = StartPresenter<StartMVPView, StartMVPInteractor>(
-        StartInteractor(AppPreferenceHelper(this))
-    )
+    lateinit var presenter: StartPresenter<StartMVPView, StartMVPInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = StartPresenter(
+            StartInteractor(AppPreferenceHelper(this))
+        )
         setContentView(R.layout.activity_start);
 
         presenter.onAttach(this)

@@ -12,9 +12,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.chat.fragments.hirer.in
 import com.example.rosatomedtech.ui.views.main.fragments.chat.fragments.hirer.presenter.HirerChatPresenter
 
 class HirerChatFragment : BaseFragment(), HirerChatMVPView {
-    var presenter = HirerChatPresenter<HirerChatMVPView, HirerChatMVPInteractor>(
-        HirerChatInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: HirerChatPresenter<HirerChatMVPView, HirerChatMVPInteractor>
 
     companion object {
         fun newInstance(): HirerChatFragment {
@@ -38,6 +36,9 @@ class HirerChatFragment : BaseFragment(), HirerChatMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = HirerChatPresenter<HirerChatMVPView, HirerChatMVPInteractor>(
+            HirerChatInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }

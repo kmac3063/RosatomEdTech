@@ -11,12 +11,13 @@ import com.example.rosatomedtech.ui.views.main.fragments.jobResponses.presenter.
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class JobResponsesActivity : BaseActivity(), JobResponsesMVPView {
-    var presenter = JobResponsesPresenter<JobResponsesMVPView, JobResponsesMVPInteractor>(
-        JobResponsesInteractor(AppPreferenceHelper(this))
-    )
+    lateinit var presenter: JobResponsesPresenter<JobResponsesMVPView, JobResponsesMVPInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = JobResponsesPresenter(
+            JobResponsesInteractor(AppPreferenceHelper(this))
+        )
         setContentView(R.layout.activity_start);
 
         presenter.onAttach(this)

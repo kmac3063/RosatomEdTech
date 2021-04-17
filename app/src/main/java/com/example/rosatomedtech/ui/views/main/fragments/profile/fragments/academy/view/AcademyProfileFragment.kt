@@ -15,9 +15,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.acade
 import com.example.rosatomedtech.ui.views.main.view.MainActivity
 
 class AcademyProfileFragment : BaseFragment(), AcademyMVPView {
-    var presenter = AcademyProfilePresenter<AcademyMVPView, AcademyProfileMVPInteractor>(
-        AcademyProfileInteractor(AppPreferenceHelper(requireContext()))
-    )
+    lateinit var presenter: AcademyProfilePresenter<AcademyMVPView, AcademyProfileMVPInteractor>
 
     companion object {
         fun newInstance(): AcademyProfileFragment {
@@ -40,6 +38,9 @@ class AcademyProfileFragment : BaseFragment(), AcademyMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = AcademyProfilePresenter<AcademyMVPView, AcademyProfileMVPInteractor>(
+            AcademyProfileInteractor(AppPreferenceHelper(requireContext()))
+        )
 
         presenter.onAttach(this)
     }
