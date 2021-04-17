@@ -13,6 +13,7 @@ import com.example.rosatomedtech.ui.base.view.BaseFragment
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.interactor.SwiperInteractor
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.interactor.SwiperMVPInteractor
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.presenter.SwiperPresenter
+import com.squareup.picasso.Picasso
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackView
 
@@ -36,7 +37,11 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_swiper,container, false)
+        val view = inflater.inflate(R.layout.fragment_swiper,container, false)
+        cardStack = view.findViewById(R.id.card_stack)
+        cardStack.layoutManager = CardStackLayoutManager(requireContext())
+        cardStack.adapter = CardStackAdapter(presenter.getCardStackList())
+        return view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +52,6 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
 
         presenter.onAttach(this)
 
-        cardStack = requireActivity().findViewById(R.id.card_stack)
-        cardStack.layoutManager = CardStackLayoutManager(requireContext())
-        cardStack.adapter = CardStackAdapter(presenter.getCardStackList())
     }
 
     inner class CardStackAdapter(var itemList: List<Card>): RecyclerView.Adapter<CardStackViewHolder>() {
@@ -71,7 +73,7 @@ class SwiperFragment : BaseFragment(), SwiperMVPView {
         var imageView: ImageView = itemView.findViewById(R.id.iw_card_stack)
 
         fun bind(item: Card) {
-
+            Picasso.get().load(item.imgUrl).fit() to imageView
         }
     }
 }

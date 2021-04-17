@@ -1,6 +1,9 @@
 package com.example.rosatomedtech.ui.views.main.view
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.rosatomedtech.R
 import com.example.rosatomedtech.data.preferences.AppPreferenceHelper
@@ -11,6 +14,7 @@ import com.example.rosatomedtech.ui.views.main.fragments.chat.fragments.hirer.vi
 import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.academy.view.AcademyProfileFragment
 import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.hirer.view.HirerProfileFragment
 import com.example.rosatomedtech.ui.views.main.fragments.profile.fragments.student.view.StudentProfileFragment
+import com.example.rosatomedtech.ui.views.main.fragments.swiper.fragments.filter.view.FilterFragment
 import com.example.rosatomedtech.ui.views.main.fragments.swiper.view.SwiperFragment
 import com.example.rosatomedtech.ui.views.main.fragments.vacanciesList.view.VacanciesListFragment
 import com.example.rosatomedtech.ui.views.main.interactor.MainInteractor
@@ -22,8 +26,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity(), MainMVPView {
     lateinit var preferenceHelper: PreferenceHelper
-
     lateinit var presenter: MainPresenter<MainMVPView, MainMVPInteractor>
+
+    lateinit var filterImageView: ImageView
+    lateinit var headerMenu: LinearLayout
 
     private val navigationListener =
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
@@ -58,21 +64,34 @@ class MainActivity : BaseActivity(), MainMVPView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
         preferenceHelper = AppPreferenceHelper(this)
         presenter = MainPresenter(
             MainInteractor(preferenceHelper)
         )
-        setContentView(R.layout.activity_main)
 
         val navigation = findViewById<BottomNavigationView>(R.id.main_bottom_navigation)
+        filterImageView = findViewById(R.id.iv_filter)
+        headerMenu = findViewById(R.id.header_menu)
+
         navigation.setOnNavigationItemSelectedListener(navigationListener)
 
         loadFragment(SwiperFragment.newInstance())
+
+        filterImageView.setOnClickListener {
+            loadFragment(FilterFragment.newInstance())
+            headerMenu.visibility = View.GONE
+        }
     }
 
     fun loadFragment(fragment: Fragment) {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.main_container_content, fragment)
         ft.commit()
+    }
+
+    override fun onFilterBackPressed() {
+        loadFragment(SwiperFragment.newInstance())
     }
 }
