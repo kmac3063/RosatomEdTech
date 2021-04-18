@@ -8,7 +8,5 @@ import androidx.room.PrimaryKey
 data class Card(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val imgUrl: String,
-    @ForeignKey(entity = Company::class, onDelete = ForeignKey.CASCADE, parentColumns = ["id"], childColumns = ["id", "imgUrl"])
-    val company: Company
+    val imgUrl: String
     )
