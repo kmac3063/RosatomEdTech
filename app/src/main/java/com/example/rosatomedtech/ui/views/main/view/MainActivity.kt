@@ -1,6 +1,7 @@
 package com.example.rosatomedtech.ui.views.main.view
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -30,6 +31,7 @@ class MainActivity : BaseActivity(), MainMVPView {
 
     lateinit var filterImageView: ImageView
     lateinit var headerMenu: LinearLayout
+    lateinit var likedImageView: ImageView
 
     private val navigationListener =
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
@@ -74,6 +76,7 @@ class MainActivity : BaseActivity(), MainMVPView {
         val navigation = findViewById<BottomNavigationView>(R.id.main_bottom_navigation)
         filterImageView = findViewById(R.id.iv_filter)
         headerMenu = findViewById(R.id.header_menu)
+        likedImageView = findViewById(R.id.iv_liked)
 
         navigation.setOnNavigationItemSelectedListener(navigationListener)
 
@@ -85,6 +88,12 @@ class MainActivity : BaseActivity(), MainMVPView {
         }
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        val item = menu?.findItem(R.id.main_navigation_swiper)
+        item?.setChecked(true)
+        return true
+    }
+
     fun loadFragment(fragment: Fragment) {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.main_container_content, fragment)
@@ -93,5 +102,9 @@ class MainActivity : BaseActivity(), MainMVPView {
 
     override fun onFilterBackPressed() {
         loadFragment(SwiperFragment.newInstance())
+    }
+
+    override fun cardSwiped() {
+        likedImageView.setImageResource(R.drawable.ic_liked_list_new_256dp)
     }
 }

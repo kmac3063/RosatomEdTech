@@ -4,4 +4,5 @@ import com.example.rosatomedtech.ui.base.view.MVPView
 
 interface MainMVPView : MVPView {
     fun onFilterBackPressed()
+    fun cardSwiped()
 }

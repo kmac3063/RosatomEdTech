@@ -15,11 +15,13 @@
         android:orientation="horizontal"
         android:layout_marginTop="5dp">
         <ImageView
+            android:id="@+id/iv_liked"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_liked_list_256dp"
-            android:layout_weight="1"/>
+            />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,6 +76,6 @@
         android:layout_gravity="bottom"
         android:background="@color/white"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/main_navigation"/>
+        app:menu="@menu/main_navigation" />
 
 </LinearLayout>

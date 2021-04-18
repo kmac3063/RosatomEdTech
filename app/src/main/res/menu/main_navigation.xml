@@ -4,12 +4,13 @@
     <item
         android:id="@+id/main_navigation_vacancy_list"
         android:icon="@drawable/ic_vacancy_list_256dp"
-        android:title="Все вакансии" />
+        android:title="Все вакансии"/>
 
     <item
         android:id="@+id/main_navigation_swiper"
         android:icon="@drawable/ic_swiper_256dp"
-        android:title="Карточки" />
+        android:title="Карточки"
+        android:checked="true"/>
 
     <item
         android:id="@+id/main_navigation_chat"
