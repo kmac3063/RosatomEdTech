@@ -6,6 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.rosatomedtech.data.objects.Card
+import com.example.rosatomedtech.data.objects.Company
+import com.example.rosatomedtech.data.objects.Student
 
 @Dao
 interface DataBaseDao {
@@ -15,4 +17,16 @@ interface DataBaseDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addCard(card: Card)
+
+    @Query("SELECT * FROM student_table ORDER BY id ASC")
+    fun readAllStudents(): LiveData<List<Student>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addStudent(student: Student)
+
+    @Query("SELECT * FROM company_table ORDER BY id ASC")
+    fun readAllCompanies(): LiveData<List<Company>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addCompany(company: Company)
 }
